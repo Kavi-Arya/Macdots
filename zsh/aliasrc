@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-alias cl="clear" 
+alias cl="clear && colorscript random" 
 alias cc="cd ~/.clones"
 alias cd.="cd ~/.config"
 alias gc="git clone --depth 1"
@@ -24,4 +24,4 @@ alias car="cargo run"
 alias dnf="sudo dnf"
 alias cool="sudo intel-undevolt apply"
 alias chadwm="startx ~/.local/bin/run.sh"
-alias showpic="kitty +kitten icat"
+alias Render="kitty +kitten icat"
