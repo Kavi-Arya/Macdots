@@ -3,6 +3,11 @@
 # installing brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+movingShit(){
+  mkdir $HOME/.config
+  cp -r $HOME/.clones/Macdots/* $HOME/.config/
+} 
+
 brewinstall(){
   brew install keepassxc
   brew install gimp
@@ -41,7 +46,7 @@ brewinstall(){
   brew install iglace 
 }
 
-movingShit(){
-  mkdir $HOME/.config
-  cp -r $HOME/.clones/Macdots/* $HOME/.config/
-} 
+shellColor(){
+  cd $HOME/.clones/Macdots/shell-color-scripts
+  sudo make install
+}
