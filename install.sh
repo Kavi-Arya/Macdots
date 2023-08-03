@@ -4,11 +4,14 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 movingShit(){
+  echo '---------Runing Moving Shit---------'
   mkdir $HOME/.config
   cp -r $HOME/.clones/Macdots/* $HOME/.config/
+  echo "\n"
 } 
 
 brewinstall(){
+  echo '---------Brew Install---------'
   brew install keepassxc
   brew install gimp
   brew install qbittorrent
@@ -44,9 +47,16 @@ brewinstall(){
   brew install visual-studio-code
   brew install spaceman
   brew install iglace 
+  echo "\n"
 }
 
 shellColor(){
+  echo '---------Runing Shell Color script---------'
   cd $HOME/.clones/Macdots/shell-color-scripts
   sudo make install
+  echo "\n"
 }
+
+movingShit
+brewinstall
+shellColor
