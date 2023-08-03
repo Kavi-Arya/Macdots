@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# installing brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 brewinstall(){
   brew install keepassxc
   brew install gimp
@@ -35,5 +38,10 @@ brewinstall(){
   brew install unnaturalscrollwheels
   brew install visual-studio-code
   brew install spaceman
+  brew install iglace 
 }
 
+movingShit(){
+  mkdir $HOME/.config
+  cp -r $HOME/.clones/Macdots/* $HOME/.config/
+} 
