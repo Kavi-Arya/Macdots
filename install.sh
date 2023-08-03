@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # installing brew
-# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 movingShit(){
   echo '---------Runing Moving Shit---------'
@@ -104,7 +104,8 @@ Services(){
   skhd --start-service
 }
 
-# movingShit
-# brewinstall
-# shellColor
+movingShit
+brewinstall
+shellColor
+Services
 sysSettings
