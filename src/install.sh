@@ -5,9 +5,9 @@
 
 movingShit(){
   echo '---------Runing Moving Shit---------'
-  mkdir $HOME/.config
-  cp -r $HOME/.clones/Macdots/* $HOME/.config/
-  echo "\n"
+  mkdir "$HOME/.config"
+  cp -r "$HOME/.clones/Macdots/*" "$HOME/.config/"
+  printf "\n"
 } 
 
 brewinstall(){
@@ -47,18 +47,18 @@ brewinstall(){
   brew install visual-studio-code
   brew install spaceman
   brew install iglace 
-  echo "\n"
+  printf "\n"
 }
 
 shellColor(){
   echo '---------Runing Shell Color script---------'
-  cd $HOME/.clones/Macdots/shell-color-scripts
+  cd "$HOME/.clones/Macdots/shell-color-scripts" || exit
   sudo make install
-  echo "\n"
+  printf "\n"
 }
 
 sysSettings(){
-  echo "Changing macOS defaults..."
+  printf "Changing macOS defaults..."
   defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
   defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
   defaults write com.apple.spaces spans-displays -bool false
@@ -98,7 +98,7 @@ sysSettings(){
 }
 
 Services(){
-  echo "Starting services"
+  printf "Starting services"
   brew services restart sketchybar
   yabai --start-service
   skhd --start-service
