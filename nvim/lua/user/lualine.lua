@@ -1,66 +1,76 @@
 local M = {
   "nvim-lualine/lualine.nvim",
-  commit = "0050b308552e45f7128f399886c86afefc3eb988",
-  event = { "VimEnter", "InsertEnter", "BufReadPre", "BufAdd", "BufNew", "BufReadPost" },
+  dependencies = {
+    "AndreM222/copilot-lualine",
+  },
 }
 
 function M.config()
-  local status_ok, lualine = pcall(require, "lualine")
-  if not status_ok then
-    return
-  end
-
-  local hide_in_width = function()
-    return vim.fn.winwidth(0) > 80
-  end
-
-  local diagnostics = {
-    "diagnostics",
-    sources = { "nvim_diagnostic" },
-    sections = { "error", "warn" },
-    symbols = { error = " ", warn = " " },
-    colored = false,
-    always_visible = true,
-  }
-
+  local icons = require "user.icons"
   local diff = {
     "diff",
     colored = false,
-    symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-    cond = hide_in_width,
+    symbols = { added = icons.git.LineAdded, modified = icons.git.LineModified, removed = icons.git.LineRemoved }, -- Changes the symbols used by the diff.
+  }
+
+  local diagnostics = {
+    "diagnostics",
+    sections = { "error", "warn" },
+    colored = false, -- Displays diagnostics status in color if set to true.
+    always_visible = true, -- Show diagnostics even if there are none.
   }
 
   local filetype = {
-    "filetype",
-    icons_enabled = false,
+    function()
+      local filetype = vim.bo.filetype
+      local upper_case_filetypes = {
+        "json",
+        "jsonc",
+        "yaml",
+        "toml",
+        "css",
+        "scss",
+        "html",
+        "xml",
+      }
+
+      if vim.tbl_contains(upper_case_filetypes, filetype) then
+        return filetype:upper()
+      end
+
+      return filetype
+    end,
   }
 
-  local location = {
-    "location",
-    padding = 0,
-  }
-
-  local spaces = function()
-    return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
-  end
-  lualine.setup {
+  require("lualine").setup {
     options = {
-      globalstatus = true,
-      icons_enabled = true,
-      theme = "auto",
+      -- component_separators = { left = "", right = "" },
+      -- section_separators = { left = "", right = "" },
+      -- component_separators = { left = "", right = "" },
+      -- section_separators = { left = "", right = "" },
       component_separators = { left = "", right = "" },
       section_separators = { left = "", right = "" },
-      disabled_filetypes = { "alpha", "dashboard" },
-      always_divide_middle = true,
+
+      ignore_focus = { "NvimTree" },
     },
     sections = {
-      lualine_a = { "mode" },
+      -- lualine_a = { {"branch", icon =""} },
+      -- lualine_b = { diff },
+      -- lualine_c = { "diagnostics" },
+      -- lualine_x = { copilot },
+      -- lualine_y = { "filetype" },
+      -- lualine_z = { "progress" },
+      -- lualine_a = { "mode" },
+      lualine_a = {},
       lualine_b = { "branch" },
       lualine_c = { diagnostics },
-      lualine_x = { diff, spaces, "encoding", filetype },
-      lualine_y = { location },
-      lualine_z = { "progress" },
+      -- lualine_x = { diff, "copilot", filetype },
+      lualine_x = { "copilot", filetype },
+      lualine_y = { "progress" },
+      lualine_z = {},
     },
+    -- extensions = { "quickfix", "man", "fugitive", "oil" },
+    extensions = { "quickfix", "man", "fugitive" },
   }
 end
 
