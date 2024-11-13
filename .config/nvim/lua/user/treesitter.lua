@@ -23,7 +23,7 @@ function M.config()
     highlight = {
       enable = true,
       -- disable = { "markdown" },
-      additional_vim_regex_highlighting = false,
+      additional_vim_regex_highlighting = true,
     },
     auto_install = true,
     modules = {},
