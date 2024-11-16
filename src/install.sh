@@ -6,25 +6,23 @@
 movingShit(){
   echo '---------Runing Moving Shit---------'
   mkdir "$HOME/.config"
-  cp -r "$HOME/.clones/Macdots/*" "$HOME/.config/"
+  cp -r "$HOME/.clones/Macdots/.config/*" "$HOME/.config/"
   printf "\n"
 } 
 
 brewinstall(){
   echo '---------Brew Install---------'
   brew install keepassxc
-  brew install gimp
   brew install qbittorrent
   brew install onlyoffice
   brew install obsidian
-  brew install obs
   brew install mpv
   brew install firefox
   brew install flameshot
   brew install alfred
   brew install yt-dlp
   brew install curl
-  brew install exa
+  brew install eza
   brew install ffmpeg
   brew install fzf
   brew install harfbuzz
@@ -38,7 +36,6 @@ brewinstall(){
   brew install sketchybar
   brew install skhd
   brew install tmux
-  brew install tldr
   brew install tree-sitter
   brew install wget
   brew install yabai
@@ -52,13 +49,13 @@ brewinstall(){
 
 shellColor(){
   echo '---------Runing Shell Color script---------'
-  cd "$HOME/.clones/Macdots/shell-color-scripts" || exit
+  cd "$HOME/.clones/Macdots/src/shell-color-scripts" || exit
   sudo make install
   printf "\n"
 }
 
 sysSettings(){
-  printf "Changing macOS defaults..."
+  echo '---------Changing macOS defaults...---------'
   defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
   defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
   defaults write com.apple.spaces spans-displays -bool false
@@ -98,7 +95,7 @@ sysSettings(){
 }
 
 Services(){
-  printf "Starting services"
+  echo '---------Starting services---------'
   brew services restart sketchybar
   yabai --start-service
   skhd --start-service
