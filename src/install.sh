@@ -12,8 +12,9 @@ movingShit(){
 
 brewinstall(){
   echo '---------Brew Install---------'
-  pkglist="./sorted.pkgs.txt"
-  brew install keepassxc qbittorrent onlyoffice obsidian mpv firefox flameshot alfred yt-dlp curl eza ffmpeg fzf harfbuzz imagemagick lf lua neofetch newsboat pandoc python sketchybar skhd tmux tree-sitter wget yabai kitty unnaturalscrollwheels visual-studio-code spaceman iglace 
+  xargs brew install < ./pkgs.txt
+  xargs brew install < ./casks.pkgs
+  brew install 
   printf "\n"
 }
 
