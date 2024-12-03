@@ -14,7 +14,6 @@ brewinstall(){
   echo '---------Brew Install---------'
   xargs brew install < ./pkgs.txt
   xargs brew install < ./casks.pkgs
-  brew install 
   printf "\n"
 }
 
