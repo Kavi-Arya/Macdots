@@ -1,19 +1,25 @@
-#!/bin/sh
+#!/bin/bash
 
-# installing brew
+echo '---------Installing Brew---------'
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install git
+
+echo '---------Installing Nix---------'
+sh <(curl -L https://nixos.org/nix/install)
 
 movingShit(){
   echo '---------Runing Moving Shit---------'
   mkdir "$HOME/.config"
+  mkdir "$HOME/.clones"
+  git clone --dept https://github.com/Kavi-Arya/Macdots.git "$HOME/.clones/Macdots"
   cp -r "$HOME/.clones/Macdots/.config/*" "$HOME/.config/"
   printf "\n"
 } 
 
 brewinstall(){
   echo '---------Brew Install---------'
-  xargs brew install < ./pkgs.txt
-  xargs brew install < ./casks.pkgs
+  xargs brew install < "$HOME/.clones/Macdots/src/pkgs.txt"
+  xargs brew install < "$HOME/.clones/Macdots/src/casks.txt"
   printf "\n"
 }
 
@@ -22,6 +28,7 @@ shellColor(){
   cd "$HOME/.clones/Macdots/src/shell-color-scripts" || exit
   sudo make install
   printf "\n"
+  cd || exit
 }
 
 sysSettings(){
