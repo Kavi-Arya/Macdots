@@ -1,25 +1,19 @@
-#!/bin/bash
+#!/bin/sh
 
-echo '---------Installing Brew---------'
+# installing brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install git
-
-echo '---------Installing Nix---------'
-sh <(curl -L https://nixos.org/nix/install)
 
 movingShit(){
   echo '---------Runing Moving Shit---------'
   mkdir "$HOME/.config"
-  mkdir "$HOME/.clones"
-  git clone --dept https://github.com/Kavi-Arya/Macdots.git "$HOME/.clones/Macdots"
   cp -r "$HOME/.clones/Macdots/.config/*" "$HOME/.config/"
   printf "\n"
 } 
 
 brewinstall(){
   echo '---------Brew Install---------'
-  xargs brew install < "$HOME/.clones/Macdots/src/pkgs.txt"
-  xargs brew install < "$HOME/.clones/Macdots/src/casks.txt"
+  pkglist="./sorted.pkgs.txt"
+  brew install keepassxc qbittorrent onlyoffice obsidian mpv firefox flameshot alfred yt-dlp curl eza ffmpeg fzf harfbuzz imagemagick lf lua neofetch newsboat pandoc python sketchybar skhd tmux tree-sitter wget yabai kitty unnaturalscrollwheels visual-studio-code spaceman iglace 
   printf "\n"
 }
 
@@ -28,7 +22,6 @@ shellColor(){
   cd "$HOME/.clones/Macdots/src/shell-color-scripts" || exit
   sudo make install
   printf "\n"
-  cd || exit
 }
 
 sysSettings(){
