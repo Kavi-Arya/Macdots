@@ -7,7 +7,8 @@
 #               |___/
 
 ### Load colors and icons ###
-. "$HOME/.config/sketchybar/colors.sh"  # Loads all defined colors
+. "$HOME/.config/sketchybar/rosePine.sh"  # Loads all defined colors
+# . "$HOME/.config/sketchybar/colors.sh"  # Loads all defined colors
 . "$HOME/.config/sketchybar/icons.sh"   # Loads all defined icons
 
 ### Store plugin and item directories in variables ###
