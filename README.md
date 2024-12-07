@@ -4,18 +4,12 @@ A collection of my personal macOS dotfiles and configurations to set up and main
 
 ## Table of Contents
 
-- [Overview](#overview)
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Customization](#customization)
-- [Acknowledgments](#acknowledgments)
 - [License](#license)
-
-## Overview
-
-This repository contains dotfiles and configuration scripts tailored for macOS to automate the setup of a development environment, ensuring consistency and ease of maintenance. It includes configurations for popular tools and applications, shell setups, and more.
 
 ## Features
 
@@ -29,29 +23,29 @@ This repository contains dotfiles and configuration scripts tailored for macOS t
 
 - macOS 10.15 (Catalina) or later
 - [Homebrew](https://brew.sh/) installed
-- Basic understanding of the terminal and shell scripting
+- [Nix](https://nixos.org/) installed
 
 ## Installation
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Kavi-Arya/Macdots.git ~/Macdots
+   git clone --dept 1 https://github.com/Kavi-Arya/Macdots.git ~/.clones/Macdotes.git
    ```
 
 2. Navigate to the repository:
 
    ```bash
-   cd ~/Macdots
+   cd ./Macdots
    ```
 
 3. Run the setup script:
 
    ```bash
-   ./setup.sh
+   ./install.sh
    ```
 
-   > **Note:** Make sure the setup script has executable permissions. You can make it executable with `chmod +x setup.sh`.
+   > **Note:** Make sure the setup script has executable permissions. You can make it executable with `chmod +x install.sh`.
 
 4. Follow the prompts to configure your environment.
 
@@ -77,12 +71,6 @@ Feel free to personalize the repository by:
 - Including additional software in the `Brewfile`.
 - Adjusting macOS defaults by editing the `macos.sh` script.
 
-## Acknowledgments
-
-- Inspired by various dotfiles repositories from the developer community.
-- Special thanks to the creators of tools and scripts used in this setup.
-
 ## License
 
 This repository is licensed under the [MIT License](LICENSE). Feel free to use and modify it to suit your needs.
-
