@@ -1,1 +1,6 @@
-Macos dot file. IDK
+# Dotfiles
+My macos COnfigure
+uses neovim
+---
+# Installation
+--
