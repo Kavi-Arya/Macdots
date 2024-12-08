@@ -147,7 +147,7 @@ sketchybar --add item clock right                                               
 
 ### Battery Widget ###
 sketchybar --add item battery right                                                \
-           --set battery update_freq=2                                             \
+           --set battery update_freq=3600                                             \
                        icon.font="Font Awesome 6 Free:Solid:12.4"                  \
                        icon.padding_right=3                                        \
                        icon.color=$YELLOW\
@@ -181,23 +181,7 @@ sketchybar --add item battery right                                             
 #                        background.padding_right=8                                  \
 #                        script="$PLUGIN_DIR/package_monitor.sh"                     \
 #                        icon.padding_left=0 label.padding_right=2                   \
-### Now Playing Widget ###
-sketchybar --add item nowPlaying right                                                 \
-           --set nowPlaying update_freq=30                                            \
-                       icon.font="Font Awesome 6 Free:Solid:12.4"                  \
-                       icon.padding_right=4                                        \
-                       icon.color=0xffa9b665\
-                       label.y_offset=1                                            \
-                       icon.y_offset=1                                             \
-                       label.font="$FONT:Bold:11.6"                                \
-                       label.color=0xffa9b665\
-                       label.padding_right=8                                       \
-                       background.color=0xffa9b665\
-                       background.height=2                                         \
-                       background.y_offset=-9                                      \
-                       background.padding_right=8                                  \
-                       script="$PLUGIN_DIR/nowPlaying.sh"                              \
-                       icon.padding_left=0 label.padding_right=2                   \
+
 ### ssd Widget ###
 sketchybar --add item  ssd right                                                   \
            --set ssd   update_freq=10                                              \
@@ -253,22 +237,41 @@ sketchybar --add item  cpu right                                                
                        icon.padding_left=0 label.padding_right=2                   \
 
 ### os version Widget ###
-sketchybar --add item  ver right                                                   \
-           --set ver   update_freq=6400                                            \
-                       icon.font="Font Awesome 6 Brands:Regular:12.4"              \
+# sketchybar --add item  ver right                                                   \
+#            --set ver   update_freq=6400                                            \
+#                        icon.font="Font Awesome 6 Brands:Regular:12.4"              \
+#                        icon.padding_right=4                                        \
+#                        icon.color=0xff88b3d8                                       \
+#                        icon.y_offset=1                                             \
+#                        label.y_offset=1                                            \
+#                        label.font="$FONT:Bold:11.6"                                \
+#                        label.color=0xff88b3d8                                      \
+#                        label.padding_right=8                                       \
+#                        background.color=0xff88b3d8                                 \
+#                        background.height=2                                         \
+#                        background.y_offset=-9                                      \
+#                        background.padding_right=8                                  \
+#                        script="$PLUGIN_DIR/os-ver.sh"                              \
+#                        icon.padding_left=-1 label.padding_right=2                  \
+#
+
+### Now Playing Widget ###
+sketchybar --add item nowPlaying right                                                 \
+           --set nowPlaying update_freq=5                                           \
+                       icon.font="Font Awesome 6 Free:Solid:12.4"                  \
                        icon.padding_right=4                                        \
-                       icon.color=0xff88b3d8                                       \
-                       icon.y_offset=1                                             \
+                       icon.color=0xffa9b665\
                        label.y_offset=1                                            \
+                       icon.y_offset=1                                             \
                        label.font="$FONT:Bold:11.6"                                \
-                       label.color=0xff88b3d8                                      \
+                       label.color=0xffa9b665\
                        label.padding_right=8                                       \
-                       background.color=0xff88b3d8                                 \
+                       background.color=0xffa9b665\
                        background.height=2                                         \
                        background.y_offset=-9                                      \
                        background.padding_right=8                                  \
-                       script="$PLUGIN_DIR/os-ver.sh"                              \
-                       icon.padding_left=-1 label.padding_right=2                  \
+                       script="$PLUGIN_DIR/nowPlaying.sh"                              \
+                       icon.padding_left=0 label.padding_right=2                   \
 
 ### If an update is avalible, update sketchybar when launched ##
 sketchybar --update
