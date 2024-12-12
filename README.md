@@ -11,7 +11,7 @@ A collection of my personal macOS dotfiles and configurations to set up and main
 
 ## Requirements
 
-- macOS 10.15 (Catalina) or later
+- macOS 15 (Sequoia)+
 - [Homebrew](https://brew.sh/) installed
 - [Nix](https://nixos.org/) installed
 - [Stow](https://www.gnu.org/software/stow/) installed
