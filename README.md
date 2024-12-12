@@ -4,16 +4,17 @@ A collection of my personal macOS dotfiles and configurations to set up and main
 
 ## Table of Contents
 
-- [Features](#features)
+- [Using](#Using)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [License](#license)
 
-## Features
+## Using
 
-- 
-- Linux like window manager with [yabai](https://github.com/koekeishiya/yabai), [skhd](https://github.com/koekeishiya/skhd), and [Karabiner Elements](https://karabiner-elements.pqrs.org/)
-- IDE like neovim config
+- [yabai](https://github.com/koekeishiya/yabai)
+- [skhd](https://github.com/koekeishiya/skhd)
+- [Karabiner Elements](https://karabiner-elements.pqrs.org/)
+- [Kitty](https://github.com/kovidgoyal/kitty)
 
 ## Requirements
 
