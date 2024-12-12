@@ -1,18 +1,20 @@
 #!/bin/bash
 
 # echo '---------Installing Brew---------'
-# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# brew install git
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install git
+brew install stow
+git clone --dept https://github.com/Kavi-Arya/Macdots.git "$HOME/.clones/Macdots"
 
 # echo '---------Installing Nix---------'
-# sh <(curl -L https://nixos.org/nix/install)
+sh <(curl -L https://nixos.org/nix/install)
 
 movingShit(){
   echo '---------Runing Moving Shit---------'
   mkdir "$HOME/.config"
   mkdir "$HOME/.clones"
-  git clone --dept https://github.com/Kavi-Arya/Macdots.git "$HOME/.clones/Macdots"
-  cp -r "$HOME/.clones/Macdots/.config/*" "$HOME/.config/"
+  cp -r "dotfiles" "$HOME"
+  cd "$HOME/dotfiles"|| exit
   printf "\n"
 } 
 
