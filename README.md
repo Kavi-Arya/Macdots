@@ -23,7 +23,6 @@ A collection of my personal macOS dotfiles and configurations to set up and main
 - [Homebrew](https://brew.sh/) installed
 - [Nix](https://nixos.org/) installed
 - [Stow](https://www.gnu.org/software/stow/) installed
-- [git] installed
 
 ## Installation
 
