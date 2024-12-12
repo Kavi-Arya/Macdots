@@ -2,13 +2,6 @@
 
 A collection of my personal macOS dotfiles and configurations to set up and maintain a streamlined and productive macOS environment.
 
-## Table of Contents
-
-- [Using](#Using)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [License](#license)
-
 ## Using
 
 - [yabai](https://github.com/koekeishiya/yabai)
