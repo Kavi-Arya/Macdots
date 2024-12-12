@@ -30,8 +30,6 @@ A collection of my personal macOS dotfiles and configurations to set up and main
    sh | curl https://raw.githubusercontent.com/Kavi-Arya/Macdots/refs/heads/main/src/install.sh
    ```
 
-4. Follow the prompts to configure your environment.
-
 ## License
 
 This repository is licensed under the [MIT License](LICENSE). Feel free to use and modify it to suit your needs.
