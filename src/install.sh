@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: Neovim config, firefox css config
+
 set -e  # Exit immediately if a command exits with a non-zero status.
 set -o pipefail  # Catch errors in pipelines.
 
