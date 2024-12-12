@@ -26,25 +26,9 @@ A collection of my personal macOS dotfiles and configurations to set up and main
 
 ## Installation
 
-1. Clone the repository:
-
    ```bash
-   git clone --dept 1 https://github.com/Kavi-Arya/Macdots.git ~/.clones/Macdotes.git
+   sh | curl https://raw.githubusercontent.com/Kavi-Arya/Macdots/refs/heads/main/src/install.sh
    ```
-
-2. Navigate to the repository:
-
-   ```bash
-   cd ./Macdots
-   ```
-
-3. Run the setup script:
-
-   ```bash
-   ./install.sh
-   ```
-
-   > **Note:** Make sure the setup script has executable permissions. You can make it executable with `chmod +x install.sh`.
 
 4. Follow the prompts to configure your environment.
 
