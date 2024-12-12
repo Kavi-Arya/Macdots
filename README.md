@@ -11,11 +11,9 @@ A collection of my personal macOS dotfiles and configurations to set up and main
 
 ## Features
 
-- Preconfigured shell setup (e.g., Zsh, bash, etc.)
-- Aliases and functions for productivity
-- Homebrew and package installations
-- macOS system defaults adjustments
-- Configuration for text editors, terminal emulators, and other tools
+- 
+- Linux like window manager with [yabai](https://github.com/koekeishiya/yabai), [skhd](https://github.com/koekeishiya/skhd), and [Karabiner Elements](https://karabiner-elements.pqrs.org/)
+- IDE like neovim config
 
 ## Requirements
 
