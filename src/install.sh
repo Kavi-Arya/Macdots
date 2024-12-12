@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# echo '---------Installing Brew---------'
+echo '---------Installing Brew---------'
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install git
 brew install stow
 git clone --dept https://github.com/Kavi-Arya/Macdots.git "$HOME/.clones/Macdots"
 
-# echo '---------Installing Nix---------'
+echo '---------Installing Nix---------'
 sh <(curl -L https://nixos.org/nix/install)
 
 movingShit(){
@@ -15,6 +15,7 @@ movingShit(){
   mkdir "$HOME/.clones"
   cp -r "dotfiles" "$HOME"
   cd "$HOME/dotfiles"|| exit
+  stow .
   printf "\n"
 } 
 
@@ -80,8 +81,8 @@ Services(){
   skhd --start-service
 }
 
-# movingShit
-# brewinstall
-# shellColor
-# Services
-# sysSettings
+movingShit
+brewinstall
+shellColor
+Services
+sysSettings
