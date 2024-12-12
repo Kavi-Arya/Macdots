@@ -7,8 +7,6 @@ A collection of my personal macOS dotfiles and configurations to set up and main
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Customization](#customization)
 - [License](#license)
 
 ## Features
@@ -24,6 +22,8 @@ A collection of my personal macOS dotfiles and configurations to set up and main
 - macOS 10.15 (Catalina) or later
 - [Homebrew](https://brew.sh/) installed
 - [Nix](https://nixos.org/) installed
+- [Stow](https://www.gnu.org/software/stow/) installed
+- [git] installed
 
 ## Installation
 
@@ -48,28 +48,6 @@ A collection of my personal macOS dotfiles and configurations to set up and main
    > **Note:** Make sure the setup script has executable permissions. You can make it executable with `chmod +x install.sh`.
 
 4. Follow the prompts to configure your environment.
-
-## Usage
-
-After installation, you can:
-
-- Use the predefined aliases and functions for everyday tasks.
-- Customize the installed configurations by editing the relevant dotfiles (e.g., `.zshrc`, `.bash_profile`, `.vimrc`).
-- Add or modify packages in the `Brewfile` to suit your needs.
-
-To apply changes after editing any configuration file, reload the shell:
-
-```bash
-source ~/.zshrc
-```
-
-## Customization
-
-Feel free to personalize the repository by:
-
-- Adding your own aliases and functions to the shell configuration files.
-- Including additional software in the `Brewfile`.
-- Adjusting macOS defaults by editing the `macos.sh` script.
 
 ## License
 
