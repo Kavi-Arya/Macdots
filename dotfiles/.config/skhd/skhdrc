@@ -7,6 +7,7 @@ shift + cmd - s : yabai --start-service
 
 # open terminal
 # cmd - return : /Applications/iTerm.app/Contents/MacOS/iTerm2
+cmd - return : ~/.local/bin/bookmarks.sh
 # cmd - x      : /Applications/flameshot.app/Contents/MacOS/flameshot gui
 # cmd - return : /Applications/kitty.app/Contents/MacOS/kitty ~
 # Browser

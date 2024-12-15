@@ -13,7 +13,7 @@ GREY=0xff282828
 TRANSPARENT=0x10000000
 
 # General bar colors
-BAR_COLOR=$GREY # Grey bar
+BAR_COLOR=$BLACK # Grey bar
 ICON_COLOR=$WHITE # Color of all icons
 LABEL_COLOR=$WHITE # Color of all labels
 

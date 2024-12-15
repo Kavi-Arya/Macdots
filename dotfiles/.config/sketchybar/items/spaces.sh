@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+# ./items "$HOME/.config/sketchybar/colors.sh"  # Loads all defined colors
 ./items "$HOME/.config/sketchybar/rosePine.sh"  # Loads all defined colors
 
 sketchybar --add   space          space_template left                \

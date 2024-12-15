@@ -16,11 +16,11 @@ yabai -m config window_border                on
 yabai -m config active_window_border_color   0xffea962
 yabai -m config normal_window_border_color   0xff1d2021
 yabai -m config layout                       bsp
-yabai -m config top_padding                  30
-yabai -m config bottom_padding               1
-yabai -m config left_padding                 1
-yabai -m config right_padding                1
-yabai -m config window_gap                   1
+yabai -m config top_padding                  40
+yabai -m config bottom_padding               12
+yabai -m config left_padding                 12
+yabai -m config right_padding                12
+yabai -m config window_gap                   6
 
 
 # floating windows are always on top (default: off)

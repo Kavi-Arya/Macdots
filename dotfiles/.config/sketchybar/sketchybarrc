@@ -26,7 +26,7 @@ PADDINGS=3          # All elements use this padidng (Wherever i didn't need it, 
 SEGMENT_SPACING=13  # The spacing between segments
 
 ### Setting up the general bar appearance and default values ###
-sketchybar --bar     height=27.5                                                     \
+sketchybar --bar     height=29.5                                                     \
                      corner_radius=0                                               \
                      border_width=0                                                \
                      margin=0                                                      \
@@ -66,8 +66,9 @@ sketchybar --add item           label_template left                             
                                 drawing=off                                        \
 
 ### Spaces themselves are this ###
+. "$ITEM_DIR/spaces-main.sh"
 # . "$ITEM_DIR/spaces.sh.icons"
-. "$ITEM_DIR/spaces.sh"
+# . "$ITEM_DIR/spaces.sh"
 
 ### First Seperator on the bar ###
 sketchybar   --add item       separator left                                       \
@@ -260,13 +261,13 @@ sketchybar --add item nowPlaying right                                          
            --set nowPlaying update_freq=5                                           \
                        icon.font="Font Awesome 6 Free:Solid:12.4"                  \
                        icon.padding_right=4                                        \
-                       icon.color=0xffa9b665\
+                       icon.color=$RED\
                        label.y_offset=1                                            \
                        icon.y_offset=1                                             \
                        label.font="$FONT:Bold:11.6"                                \
-                       label.color=0xffa9b665\
+                       label.color=$RED\
                        label.padding_right=8                                       \
-                       background.color=0xffa9b665\
+                       background.color=$RED\
                        background.height=2                                         \
                        background.y_offset=-9                                      \
                        background.padding_right=8                                  \

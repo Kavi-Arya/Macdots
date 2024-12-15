@@ -14,7 +14,7 @@ const CONFIG = {
   // General
   name: 'Kavi',
   imageBackground: false,
-  openInNewTab: true,
+  openInNewTab: false,
   twelveHourFormat: false,
 
   // Greetings
