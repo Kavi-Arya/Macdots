@@ -31,6 +31,28 @@ install_brew() {
   fi
 }
 
+# Function to install additional packages via Brew
+install_additional_packages() {
+  log "Prompting user for additional packages to install."
+  additional_pkgs=$(dialog --inputbox "Enter additional packages to install (space-separated):" 10 50 3>&1 1>&2 2>&3)
+
+  if [[ -n "$additional_pkgs" ]]; then
+    show_progress "Installing additional packages..."
+    for pkg in $additional_pkgs; do
+      if brew list --formula | grep -q "^$pkg\$"; then
+        log "$pkg is already installed. Skipping."
+      else
+        brew install "$pkg"
+        log "$pkg installed successfully."
+      fi
+    done
+    dialog --msgbox "Additional packages installation completed." 6 50
+  else
+    log "No additional packages specified. Skipping."
+    dialog --msgbox "No additional packages specified. Skipping." 6 50
+  fi
+}
+
 # Function to install Nix
 install_nix() {
   show_progress "Installing Nix..."
@@ -64,10 +86,44 @@ clone_macdots() {
 apply_macos_defaults() {
   show_progress "Applying macOS defaults..."
   log "Applying macOS defaults..."
+  log '---------Applying macOS Defaults---------'
+  defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
+  defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+  defaults write com.apple.spaces spans-displays -bool false
   defaults write com.apple.dock autohide -bool true
   defaults write com.apple.dock "mru-spaces" -bool "false"
+  defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+  defaults write com.apple.LaunchServices LSQuarantine -bool false
+  defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+  defaults write NSGlobalDomain KeyRepeat -int 1
+  defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+  defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+  defaults write NSGlobalDomain _HIHideMenuBar -bool true
+  defaults write com.apple.screencapture location -string "$HOME/Desktop"
+  defaults write com.apple.screencapture disable-shadow -bool true
+  defaults write com.apple.screencapture type -string "png"
+  defaults write com.apple.finder DisableAllAnimations -bool true
+  defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+  defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+  defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
+  defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
   defaults write com.apple.Finder AppleShowAllFiles -bool true
+  defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
   defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+  defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+  defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+  defaults write com.apple.finder ShowStatusBar -bool false
+  defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool YES
+  defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+  defaults write com.apple.Safari IncludeDevelopMenu -bool true
+  defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+  defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+  defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+  defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
+  defaults write -globalDomain AppleAccentColor -bool False
+  defaults write -globalDomain AppleHighlightColor -string "Orange"
+  defaults write -globalDomain AppleAccentColor -bool True
+
   log "macOS defaults applied successfully."
   dialog --msgbox "macOS defaults applied successfully." 6 50
 }
@@ -131,15 +187,16 @@ start_services() {
 while true; do
   choice=$(dialog --clear \
     --title "Mac Setup Script" \
-    --menu "Choose an option:" 15 50 6 \
+    --menu "Choose an option:" 15 50 7 \
     1 "Install Homebrew" \
     2 "Install Nix" \
     3 "Clone Macdots Repository" \
     4 "Set Up Dotfiles" \
     5 "Install Brew Packages" \
-    6 "Apply macOS Defaults" \
-    7 "Start Services" \
-    8 "Exit" \
+    6 "Install Additional Packages" \
+    7 "Apply macOS Defaults" \
+    8 "Start Services" \
+    9 "Exit" \
     3>&1 1>&2 2>&3)
 
   clear
@@ -160,12 +217,15 @@ while true; do
       install_brew_packages
       ;;
     6)
-      apply_macos_defaults
+      install_additional_packages
       ;;
     7)
-      start_services
+      apply_macos_defaults
       ;;
     8)
+      start_services
+      ;;
+    9)
       break
       ;;
     *)
