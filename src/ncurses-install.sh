@@ -2,7 +2,7 @@
 
 # Ensure the ncurses library is available
 if ! command -v dialog &>/dev/null; then
-  echo "[ERROR] 'dialog' is required but not installed. Install it with 'brew install dialog' or 'sudo apt-get install dialog'."
+  echo "[ERROR] 'dialog' is required but not installed. Install it with 'brew install dialog'."
   exit 1
 fi
 
@@ -39,14 +39,18 @@ install_additional_packages() {
   if [[ -n "$additional_pkgs" ]]; then
     show_progress "Installing additional packages..."
     for pkg in $additional_pkgs; do
-      if brew list --formula | grep -q "^$pkg\$"; then
+      if brew list --formula | grep -q "^$pkg$"; then
         log "$pkg is already installed. Skipping."
       else
-        brew install "$pkg"
-        log "$pkg installed successfully."
+        if brew install "$pkg"; then
+          log "$pkg installed successfully."
+          dialog --msgbox "Additional packages installation completed." 6 50
+        else
+          log "[ERROR] Failed to install $pkg."
+          dialog --msgbox "Failed to install package: $pkg" 6 50
+        fi
       fi
     done
-    dialog --msgbox "Additional packages installation completed." 6 50
   else
     log "No additional packages specified. Skipping."
     dialog --msgbox "No additional packages specified. Skipping." 6 50
@@ -58,7 +62,7 @@ install_nix() {
   show_progress "Installing Nix..."
   log "Installing Nix..."
   if ! command -v nix &>/dev/null; then
-    sh | curl -L https://nixos.org/nix/install
+    # sh <(curl -L https://nixos.org/nix/install)
     log "Nix installation completed."
     dialog --msgbox "Nix installation completed." 6 50
   else
@@ -86,7 +90,6 @@ clone_macdots() {
 apply_macos_defaults() {
   show_progress "Applying macOS defaults..."
   log "Applying macOS defaults..."
-  log '---------Applying macOS Defaults---------'
   defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
   defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
   defaults write com.apple.spaces spans-displays -bool false
@@ -122,8 +125,6 @@ apply_macos_defaults() {
   defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
   defaults write -globalDomain AppleAccentColor -bool False
   defaults write -globalDomain AppleHighlightColor -string "Orange"
-  defaults write -globalDomain AppleAccentColor -bool True
-
   log "macOS defaults applied successfully."
   dialog --msgbox "macOS defaults applied successfully." 6 50
 }
@@ -136,8 +137,18 @@ install_brew_packages() {
   casks_file="$HOME/.clones/Macdots/src/casks.txt"
 
   if [[ -f "$pkgs_file" ]]; then
-    xargs brew install < "$pkgs_file"
-    log "Brew packages installed successfully."
+    while IFS= read -r pkg; do
+      if brew list --formula | grep -q "^$pkg$"; then
+        log "$pkg is already installed. Skipping."
+      else
+        if brew install "$pkg"; then
+          log "$pkg installed successfully."
+        else
+          log "[ERROR] Failed to install $pkg."
+          dialog --msgbox "Failed to install package: $pkg" 6 50
+        fi
+      fi
+    done < "$pkgs_file"
     dialog --msgbox "Brew packages installed successfully." 6 50
   else
     log "Package file $pkgs_file not found. Skipping."
@@ -145,8 +156,18 @@ install_brew_packages() {
   fi
 
   if [[ -f "$casks_file" ]]; then
-    xargs brew install --cask < "$casks_file"
-    log "Brew cask packages installed successfully."
+    while IFS= read -r cask; do
+      if brew list --cask | grep -q "^$cask$"; then
+        log "$cask is already installed. Skipping."
+      else
+        if brew install --cask "$cask"; then
+          log "$cask installed successfully."
+        else
+          log "[ERROR] Failed to install $cask."
+          dialog --msgbox "Failed to install cask: $cask" 6 50
+        fi
+      fi
+    done < "$casks_file"
     dialog --msgbox "Brew cask packages installed successfully." 6 50
   else
     log "Cask file $casks_file not found. Skipping."
@@ -187,7 +208,7 @@ start_services() {
 while true; do
   choice=$(dialog --clear \
     --title "Mac Setup Script" \
-    --menu "Choose an option:" 15 50 7 \
+    --menu "Choose an option:" 20 52 7 \
     1 "Install Homebrew" \
     2 "Install Nix" \
     3 "Clone Macdots Repository" \
@@ -226,7 +247,7 @@ while true; do
       start_services
       ;;
     9)
-      break
+      exit
       ;;
     *)
       log "Invalid option. Please try again."
@@ -235,5 +256,4 @@ while true; do
 
 done
 
-log "Setup script completed successfully!"
-
+dialog --msgbox "Setup script completed successfully!" 6 50
