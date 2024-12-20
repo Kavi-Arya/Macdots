@@ -7,8 +7,8 @@
 #               |___/
 
 ### Load colors and icons ###
+# . "$HOME/.config/sketchybar/gruvboxMaterial.sh"  # Loads all defined colors
 . "$HOME/.config/sketchybar/rosePine.sh"  # Loads all defined colors
-# . "$HOME/.config/sketchybar/colors.sh"  # Loads all defined colors
 . "$HOME/.config/sketchybar/icons.sh"   # Loads all defined icons
 
 ### Store plugin and item directories in variables ###
@@ -30,11 +30,11 @@ sketchybar --bar     height=29.5                                                
                      corner_radius=0                                               \
                      border_width=0                                                \
                      margin=0                                                      \
-                     blur_radius=22                                                 \
+                     blur_radius=32                                                 \
                      position=top                                                  \
                      padding_left=4                                                \
                      padding_right=4                                               \
-                     color=$TRANSPARENT                                              \
+                     color=$BLACK                                              \
                      topmost=off                                                   \
                      sticky=on                                                     \
                      font_smoothing=on                                             \
@@ -70,15 +70,15 @@ sketchybar --add item           label_template left                             
 # . "$ITEM_DIR/spaces.sh.icons"
 # . "$ITEM_DIR/spaces.sh"
 
-### First Seperator on the bar ###
-sketchybar   --add item       separator left                                       \
-             --set separator  icon=┃                                               \
-                              icon.font="JetBrainsmono Nerd Font:Regular:18.0"               \
-                              background.padding_left=-5                           \
-                              background.padding_right=-7                          \
-                              icon.y_offset=2                                      \
-                              label.drawing=off                                    \
-                              icon.color=0xff606060
+# ### First Seperator on the bar ###
+# sketchybar   --add item       separator left                                       \
+#              --set separator  icon=┃                                               \
+#                               icon.font="JetBrainsmono Nerd Font:Regular:20.0"               \
+#                               background.padding_left=-5                           \
+#                               background.padding_right=-7                          \
+#                               icon.y_offset=2                                      \
+#                               label.drawing=off                                    \
+#                               icon.color=$WHITE
 
 ### BSP/float/stack/fullscreen text ###
 sketchybar --add       event          window_focus                                 \
@@ -86,32 +86,32 @@ sketchybar --add       event          window_focus                              
            --set       system.yabai   script="$PLUGIN_DIR/yabai.sh"                \
                                       icon.font="$FONT:Bold:16.0"                  \
                                       label.drawing=off                            \
-                                      icon.color=$BLACK                            \
+                                      icon.color=$WHITE                            \
                                       icon.y_offset=2                              \
                                       icon.padding_left=8                          \
                                       updates=on                                   \
            --subscribe system.yabai window_focus mouse.clicked                     \
 
-### Second seperator on the bar ###
-sketchybar   --add item        separator2 left                                     \
-             --set separator2  icon=┃                                              \
-                               icon.font="Hack Nerd Font:Regular:13.5"              \
-                               background.padding_right=0                          \
-                               background.padding_left=-3                          \
-                               icon.y_offset=1                                     \
-                               label.drawing=off                                   \
-                               icon.color=0xff606060                               \
+# ### Second seperator on the bar ###
+# sketchybar   --add item        separator2 left                                     \
+#              --set separator2  icon=┃                                              \
+#                                icon.font="$FONT:BLACK:13.5"              \
+#                                background.padding_right=0                          \
+#                                background.padding_left=-5                          \
+#                                icon.y_offset=1                                     \
+#                                label.drawing=off                                   \
+#                                icon.color=$WHITE                               \
 ### Space number ###
 . "$ITEM_DIR/spacenum.sh"
 
 ### Third seperator on the bar ###
-sketchybar   --add item       separator3 left                                      \
-             --set separator3  icon=┃                                              \
-                              icon.font="Hack Nerd Font:Regular:13.5"               \
-                              background.padding_right=-5                          \
-                              icon.y_offset=1                                      \
-                              label.drawing=off                                    \
-                              icon.color=0xff606060                                \
+# sketchybar   --add item       separator3 left                                      \
+#              --set separator3  icon=┃                                              \
+#                               icon.font="$FONT:Regular:13.5"               \
+#                               background.padding_right=-5                          \
+#                               icon.y_offset=1                                      \
+#                               label.drawing=off                                    \
+#                               icon.color=$WHITE                                \
 
 # # Curent procces name
 # sketchybar --add       event        window_focus                                   \
@@ -121,7 +121,7 @@ sketchybar   --add item       separator3 left                                   
 #                                     label.font="$FONT:Bold:14.8"                   \
 #                                     label.y_offset=2                               \
 #                                     label.padding_left=-0                          \
-#                                     label.color=0xff1d2021                         \
+#                                     label.color=$WHITE                         \
 #            --subscribe window_title window_focus title_change                      \
 
 ### Menu bar items ###
@@ -188,13 +188,13 @@ sketchybar --add item  ssd right                                                
            --set ssd   update_freq=10                                              \
                        icon.font="Font Awesome 6 Free:Solid:13.3"                  \
                        icon.padding_right=4                                        \
-                       icon.color=0xffd3869b \
+                       icon.color=$MAGENTA \
                        icon.y_offset=1                                             \
                        label.y_offset=1                                            \
                        label.font="$FONT:Bold:11.6"                                \
-                       label.color=0xffd3869b\
+                       label.color=$MAGENTA\
                        label.padding_right=8                                       \
-                       background.color=0xffd3869b \
+                       background.color=$MAGENTA \
                        background.height=2                                         \
                        background.y_offset=-9                                      \
                        background.padding_right=8                                  \
@@ -206,13 +206,13 @@ sketchybar --add item  mem right                                                
            --set mem   update_freq=1                                              \
                        icon.font="Font Awesome 6 Free:Solid:13.3"                  \
                        icon.padding_right=4                                        \
-                       icon.color=0xff89b482\
+                       icon.color=$GREEN\
                        icon.y_offset=1                                             \
                        label.y_offset=1                                            \
                        label.font="$FONT:Bold:11.6"                                \
-                       label.color=0xff89b482\
+                       label.color=$GREEN\
                        label.padding_right=8                                       \
-                       background.color=0xff89b482 \
+                       background.color=$GREEN \
                        background.height=2                                         \
                        background.y_offset=-9                                      \
                        background.padding_right=8                                  \
@@ -224,37 +224,18 @@ sketchybar --add item  cpu right                                                
            --set cpu   update_freq=1                                              \
                        icon.font="Font Awesome 6 Free:Solid:12.4"                  \
                        icon.padding_right=4                                        \
-                       icon.color=0xff7daea3 \
+                       icon.color=$BLUE \
                        icon.y_offset=1                                             \
                        label.y_offset=1                                            \
                        label.font="$FONT:Bold:11.6"                                \
-                       label.color=0xff7daea3 \
+                       label.color=$BLUE \
                        label.padding_right=8                                       \
-                       background.color=0xff7daea3 \
+                       background.color=$BLUE \
                        background.height=2                                         \
                        background.y_offset=-9                                      \
                        background.padding_right=8                                  \
                        script="$PLUGIN_DIR/cpu.sh"                                 \
                        icon.padding_left=0 label.padding_right=2                   \
-
-### os version Widget ###
-# sketchybar --add item  ver right                                                   \
-#            --set ver   update_freq=6400                                            \
-#                        icon.font="Font Awesome 6 Brands:Regular:12.4"              \
-#                        icon.padding_right=4                                        \
-#                        icon.color=0xff88b3d8                                       \
-#                        icon.y_offset=1                                             \
-#                        label.y_offset=1                                            \
-#                        label.font="$FONT:Bold:11.6"                                \
-#                        label.color=0xff88b3d8                                      \
-#                        label.padding_right=8                                       \
-#                        background.color=0xff88b3d8                                 \
-#                        background.height=2                                         \
-#                        background.y_offset=-9                                      \
-#                        background.padding_right=8                                  \
-#                        script="$PLUGIN_DIR/os-ver.sh"                              \
-#                        icon.padding_left=-1 label.padding_right=2                  \
-#
 
 ### Now Playing Widget ###
 sketchybar --add item nowPlaying right                                                 \

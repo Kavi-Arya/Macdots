@@ -1,3 +1,6 @@
+# ./items "$HOME/.config/sketchybar/colors.sh"  # Loads all defined colors
+./items "$HOME/.config/sketchybar/rosePine.sh"  # Loads all defined colors
+
 sketchybar   --add item       spacenum1  left                          \
              --set spacenum1  icon=Terminal                                  \
                               icon.font="$FONT:Bold:13" \
@@ -6,27 +9,27 @@ sketchybar   --add item       spacenum1  left                          \
                               icon.y_offset=1                           \
                               background.padding_right=-5             \
                               label.drawing=off                       \
-                              icon.color=0xffcf6e6e                   \
+                              icon.color=$WHITE                   \
 
 sketchybar   --add item       spacenum2  left                          \
-             --set spacenum2  icon=Files                                  \
+             --set spacenum2  icon=Notes                                  \
                               icon.font="$FONT:Bold:13" \
                               associated_space=2                     \
                               background.padding_left=0              \
                               icon.y_offset=1                           \
                               background.padding_right=-6             \
                               label.drawing=off                       \
-                              icon.color=0xffcf6e6e                   \
+                              icon.color=$WHITE                   \
 
 sketchybar   --add item       spacenum3  left                          \
-             --set spacenum3  icon=Notes                                 \
+             --set spacenum3  icon=Finder                                \
                               icon.font="$FONT:Bold:13" \
                               associated_space=3                     \
                               background.padding_left=0              \
                               icon.y_offset=1                           \
                               background.padding_right=-6             \
                               label.drawing=off                       \
-                              icon.color=0xffcf6e6e                   \
+                              icon.color=$WHITE                   \
 
 sketchybar   --add item       spacenum4  left                          \
              --set spacenum4  icon=Browser                                  \
@@ -36,7 +39,7 @@ sketchybar   --add item       spacenum4  left                          \
                               icon.y_offset=1                           \
                               background.padding_right=-6             \
                               label.drawing=off                       \
-                              icon.color=0xffcf6e6e                   \
+                              icon.color=$WHITE                   \
 
 sketchybar   --add item       spacenum5  left                          \
              --set spacenum5  icon=Music                                  \
@@ -46,7 +49,7 @@ sketchybar   --add item       spacenum5  left                          \
                               icon.y_offset=1                           \
                               background.padding_right=-6             \
                               label.drawing=off                       \
-                              icon.color=0xffcf6e6e                   \
+                              icon.color=$WHITE                   \
 
 sketchybar   --add item       spacenum6  left                          \
              --set spacenum6  icon=Office                                  \
@@ -56,34 +59,34 @@ sketchybar   --add item       spacenum6  left                          \
                               icon.y_offset=1                           \
                               background.padding_right=-6             \
                               label.drawing=off                       \
-                              icon.color=0xffcf6e6e                   \
+                              icon.color=$WHITE                   \
 
 sketchybar   --add item       spacenum7  left                          \
-             --set spacenum7  icon=7                                  \
+             --set spacenum7  icon=Safair                                  \
                               icon.font="$FONT:Bold:13" \
                               associated_space=7                    \
                               background.padding_left=0              \
                               icon.y_offset=1                           \
                               background.padding_right=-6             \
                               label.drawing=off                       \
-                              icon.color=0xffcf6e6e                   \
+                              icon.color=$WHITE                   \
 
 sketchybar   --add item       spacenum8  left                          \
-             --set spacenum8  icon=8                                  \
+             --set spacenum8  icon=RANDOM                                  \
                               icon.font="$FONT:Bold:13" \
                               associated_space=8                    \
                               background.padding_left=0              \
                               icon.y_offset=1                           \
                               background.padding_right=-6             \
                               label.drawing=off                       \
-                              icon.color=0xffcf6e6e                   \
+                              icon.color=$WHITE                   \
 
 sketchybar   --add item       spacenum9  left                          \
-             --set spacenum9  icon=9                                  \
+             --set spacenum9  icon=Needful                                  \
                               icon.font="$FONT:Bold:13" \
                               associated_space=9                    \
                               background.padding_left=0              \
                               icon.y_offset=1                           \
                               background.padding_right=-6             \
                               label.drawing=off                       \
-                              icon.color=0xffcf6e6e                   \
+                              icon.color=$WHITE                   \

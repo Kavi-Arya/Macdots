@@ -119,15 +119,17 @@ fpath=(/Users/augest/zsh-completions/src $fpath)
 autopair-init
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
-bindkey -s "^a" 'cd $(find ~ -type d | fzf)^M'
+
+# bindkey -s "^a" 'cd $(find ~ -type d | fzf)^M'
 bindkey -s "^k" 'ls^M'
 
 # Nix Shit
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
-
-colorscript random
 if [ -f /etc/bash.command-not-found ]; then
     . /etc/bash.command-not-found
+fi
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
 fi

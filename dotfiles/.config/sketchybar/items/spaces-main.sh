@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
-# ./items "$HOME/.config/sketchybar/colors.sh"  # Loads all defined colors
+# ./items "$HOME/.config/sketchybar/gruvboxMaterial.sh"  # Loads all defined colors
 ./items "$HOME/.config/sketchybar/rosePine.sh"  # Loads all defined colors
+
+# FONT="SF Pro"
 FONT="material-design-icons-extended"
 
 sketchybar --add   space          space_template left                \
@@ -34,7 +36,7 @@ sketchybar --add   space          space_template left                \
            --set   spaces_1.idle  associated_space=1                 \
                                   icon=󰞷\
                                   icon.font="$FONT:Bold:24.0"        \
-                                  icon.highlight_color=$WHITE\
+                                  icon.highlight_color=$RED\
                                   icon.background.color=$BLACK\
                                   drawing=on                         \
                                   script="$PLUGIN_DIR/space.sh"      \
@@ -44,7 +46,7 @@ sketchybar --add   space          space_template left                \
                                   icon=󰚸\
                                   icon.font="$FONT:Bold:18.0"        \
                                   icon.padding_right=4               \
-                                  icon.highlight_color=$WHITE\
+                                  icon.highlight_color=$BLUE\
                                   icon.background.color=$BLACK\
                                   drawing=on                         \
                                   script="$PLUGIN_DIR/space.sh"      \
@@ -52,7 +54,7 @@ sketchybar --add   space          space_template left                \
            --clone spaces_1.doc   space_template                     \
            --set   spaces_1.doc   associated_space=3                 \
                                   icon=󰀶\
-                                  icon.highlight_color=$WHITE\
+                                  icon.highlight_color=$GREEN\
                                   icon.background.color=$BLACK\
                                   drawing=on                         \
                                   script="$PLUGIN_DIR/space.sh"      \
@@ -60,7 +62,7 @@ sketchybar --add   space          space_template left                \
            --clone spaces_1.help  space_template                     \
            --set   spaces_1.help  associated_space=4                 \
                                   icon=󰈹\
-                                  icon.highlight_color=$WHITE\
+                                  icon.highlight_color=$MAGENTA\
                                   icon.background.color=$BLACK\
                                   drawing=on                         \
                                   script="$PLUGIN_DIR/space.sh"      \
@@ -68,7 +70,7 @@ sketchybar --add   space          space_template left                \
            --clone spaces_1.music space_template                     \
            --set   spaces_1.music associated_space=5                 \
                                   icon=󰝚\
-                                  icon.highlight_color=$WHITE\
+                                  icon.highlight_color=$YELLOW\
                                   icon.background.color=$BLACK\
                                   drawing=on                         \
                                   script="$PLUGIN_DIR/space.sh"      \
@@ -76,7 +78,7 @@ sketchybar --add   space          space_template left                \
            --clone spaces_2.nine  space_template                     \
            --set   spaces_2.nine  associated_space=6                 \
                                   icon=󰏆\
-                                  icon.highlight_color=$WHITE\
+                                  icon.highlight_color=$ORANGE\
                                   icon.background.color=$BLACK\
                                   drawing=on                         \
                                   script="$PLUGIN_DIR/space.sh"      \
@@ -84,7 +86,7 @@ sketchybar --add   space          space_template left                \
            --clone spaces_2.code  space_template                     \
            --set   spaces_2.code  associated_space=7                 \
                                   icon=󰀹                     \
-                                  icon.highlight_color=$WHITE\
+                                  icon.highlight_color=$YELLOW\
                                   icon.background.color=$BLACK\
                                   drawing=on                         \
                                   script="$PLUGIN_DIR/space.sh"      \
@@ -92,7 +94,7 @@ sketchybar --add   space          space_template left                \
            --clone spaces_2.tex   space_template                     \
            --set   spaces_2.tex   associated_space=8                 \
                                   icon=8 \
-                                  icon.highlight_color=$WHITE\
+                                  icon.highlight_color=$YELLOW\
                                   icon.background.color=$BLACK\
                                   drawing=on                         \
                                   script="$PLUGIN_DIR/space.sh"      \
@@ -100,7 +102,7 @@ sketchybar --add   space          space_template left                \
            --clone spaces_2.web   space_template                     \
            --set   spaces_2.web   associated_space=9                 \
                                   icon=9                         \
-                                  icon.highlight_color=$WHITE\
+                                  icon.highlight_color=$YELLOW\
                                   icon.background.color=$BLACK\
                                   drawing=on                         \
                                   script="$PLUGIN_DIR/space.sh"      \
