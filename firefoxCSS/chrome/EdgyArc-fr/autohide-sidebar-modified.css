@@ -7,20 +7,20 @@ See the above repository for updates as well as full license text. */
   Feel free to use, adapt, and elevate as needed. No support is provided, and your creativity is the limit.
   Kindly respect the original license by MrOtherGuy.
 */
+
 @media (-moz-bool-pref:"af.edgyarc.sidebar-always-collapsed") {
   :root, :root[titlepreface="᠎"] { 
     #sidebar-box {
-  --uc-sidebar-hover-width: 48px !important;
-  }
+      --uc-sidebar-hover-width: 48px !important;
+    }
   }
 }
 
 @media (-moz-bool-pref:"af.edgyarc.autohide-sidebar") {
-      :root[titlepreface="᠎"] { 
+  :root[titlepreface="᠎"] { 
     #sidebar-box {
-  --uc-sidebar-width: 8px !important;
-  }
-  
+      --uc-sidebar-width: 8px !important;
+    }
   }
 }
 
@@ -35,16 +35,37 @@ See the above repository for updates as well as full license text. */
     min-width: var(--uc-sidebar-width) !important;
     width: var(--uc-sidebar-width) !important;
     max-width: var(--uc-sidebar-width) !important;
-    z-index: 1;
-    @media not (-moz-bool-pref:"uc.tweak.af.sidebar-width-350") {--uc-sidebar-hover-width: 260px;}
-    @media (-moz-bool-pref:"uc.tweak.af.sidebar-width-350") {--uc-sidebar-hover-width: 350px;}
+    z-index: 1000 !important; /* Ensure the sidebar is always above other elements */
+    overflow: visible !important; /* Prevent clipping */
   }
 
-  #sidebar-box[positionend] { direction: rtl }
-  #sidebar-box[positionend] > * { direction: ltr }
+  @media not (-moz-bool-pref:"uc.tweak.af.sidebar-width-350") {
+    #sidebar-box {
+      --uc-sidebar-hover-width: 260px;
+    }
+  }
 
-  #sidebar-box[positionend]:-moz-locale-dir(rtl) { direction: ltr }
-  #sidebar-box[positionend]:-moz-locale-dir(rtl) > * { direction: rtl }
+  @media (-moz-bool-pref:"uc.tweak.af.sidebar-width-350") {
+    #sidebar-box {
+      --uc-sidebar-hover-width: 350px;
+    }
+  }
+
+  #sidebar-box[positionend] {
+    direction: rtl;
+  }
+
+  #sidebar-box[positionend] > * {
+    direction: ltr;
+  }
+
+  #sidebar-box[positionend]:-moz-locale-dir(rtl) {
+    direction: ltr;
+  }
+
+  #sidebar-box[positionend]:-moz-locale-dir(rtl) > * {
+    direction: rtl;
+  }
 
   #sidebar-splitter {
     width: 10px !important;
@@ -62,7 +83,9 @@ See the above repository for updates as well as full license text. */
   #sidebar-box:hover > #sidebar {
     min-width: var(--uc-sidebar-hover-width) !important;
     max-width: var(--uc-sidebar-hover-width) !important;
-    transition: min-width var(--uc-autohide-transition-duration) var(--uc-autohide-transition-type) var(--uc-autohide-sidebar-delay), box-shadow var(--uc-autohide-transition-duration) ease-in-out var(--uc-autohide-sidebar-delay) !important;
+    transition: min-width var(--uc-autohide-transition-duration) var(--uc-autohide-transition-type) var(--uc-autohide-sidebar-delay),
+                box-shadow var(--uc-autohide-transition-duration) ease-in-out var(--uc-autohide-sidebar-delay) !important;
+    z-index: 1000 !important; /* Ensure hover-expanded sidebar stays above all elements */
   }
 
   .sidebar-panel {
@@ -99,3 +122,4 @@ See the above repository for updates as well as full license text. */
     border-left-style: solid !important;
   }
 }
+
